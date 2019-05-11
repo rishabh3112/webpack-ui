@@ -39,7 +39,7 @@ const DEFAULT_WEBPACK_CONFIG_FILENAME = "webpack.config.js";
 
 export default function runAction(
 	action: string,
-	generator: Generator,
+	generator: Generator | typeof Generator,
 	configFile: string = DEFAULT_WEBPACK_CONFIG_FILENAME,
 	packages?: string[],
 )
@@ -70,7 +70,7 @@ export default function runAction(
     const questioner = new Questioner();
 	(generator as any).prototype.prompt = questioner.question; // for changing prototype
 
-	env.registerStub(generator, generatorName);
+	env.registerStub((generator as Generator), generatorName);
 
 	return new Promise((resolve, reject) => {
 		env.run(generatorName, null);
