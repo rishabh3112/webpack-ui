@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "tsc"
+    "build:gui": "cd src/client && npm run build",
+    "build": "tsc && npm run build:gui"
   },
   "repository": {
     "type": "git",

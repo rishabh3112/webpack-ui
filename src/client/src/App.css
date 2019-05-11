@@ -1,0 +1,29 @@
+@import '../node_modules/codemirror/lib/codemirror.css';
+@import '../node_modules/codemirror/theme/dracula.css';
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    background: #e0e0ef;
+}
+#root {
+    height: 100%;
+}
+.App{
+    height: calc(100% - 20px);
+}
+.pad-section{
+    padding: 10px;
+}
+.no-conf {
+    text-align: center;
+    position: relative;
+    top: 40%;
+}
+.CodeMirror {
+    height: 100%;
+    max-height: 80vh
+}
+.react-codemirror2 {
+    height: 100%;
+}

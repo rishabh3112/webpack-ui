@@ -43,7 +43,7 @@ export default function runAction(
 	configFile: string = DEFAULT_WEBPACK_CONFIG_FILENAME,
 	packages?: string[],
 )
-	: boolean{
+	: Promise<boolean>{
 
 	let configPath: string | null = null;
 
@@ -56,7 +56,7 @@ export default function runAction(
 	const generatorName = `webpack-${action}-generator`;
 
 	if (!generator) {
-		generator = class extends Generator {
+		(generator as any) = class extends Generator {
 			public initializing(): void {
 				packages.forEach(
 					(pkgPath: string): Generator => {
@@ -68,11 +68,14 @@ export default function runAction(
 	}
 
     const questioner = new Questioner();
-	generator.prototype.prompt = questioner.question;
+	(generator as any).prototype.prompt = questioner.question; // for changing prototype
 
 	env.registerStub(generator, generatorName);
 
-	return env.run(generatorName).then(() => {
+	return new Promise((resolve, reject) => {
+		env.run(generatorName, null);
+		resolve();
+	}).then(() => {
 		let configModule: object;
 		try {
 			const confPath = path.resolve(process.cwd(), ".yo-rc.json");
@@ -100,5 +103,5 @@ export default function runAction(
 		return true;
 	}).catch((err) => {
 		return false;
-    });
+	});;
 }
