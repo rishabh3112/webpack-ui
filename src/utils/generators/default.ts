@@ -7,7 +7,7 @@ export default class WebpackGenerator extends Generator {
         "webpack-cli"
     ]
 
-    constructor(args, opts) {
+    constructor(args: string | string[], opts: {}) {
         super(args, opts);
         this.configuration = {
             config: {
@@ -17,24 +17,20 @@ export default class WebpackGenerator extends Generator {
         }
     }
 
-    prompting() {
-        const done = this.async();
-        this.configuration.config.topScope.push(
-            "const webpack = require('webpack');",
-            "const path = require('path');"
-        )
-        this.configuration.config.entry = '"index.js"';
-        this.configuration.config.output = {
-            path : 'path.resolve(__dirname,"index.js")',
-        };
-        done();
-    }
-
     /**
      * writing()
      * @description write files in user directory
      */
     writing() {
+        this.configuration.config.topScope.push(
+            "const webpack = require('webpack');",
+            "const path = require('path');"
+        )
+        this.configuration.config.webpackOptions.entry = '"index.js"';
+        this.configuration.config.webpackOptions.output = {
+            path : 'path.resolve(__dirname,"index.js")',
+        };
+
         this.config.set('configuration', this.configuration);
         this.fs.write('index.js', '');
     }

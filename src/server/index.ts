@@ -30,8 +30,9 @@ app.post('/api/save', (req, res) => {
 
 app.post('/api/init', (req, res) => {
     if (req.body.type === 'defaults') {
-        runAction('init', defaultGenerator);
-        res.json({value: true});
+        runAction('init', defaultGenerator).then(() => {
+            res.json({value: true});
+        });
     }
     res.json({value: "WIP"});
 });

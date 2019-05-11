@@ -53,7 +53,7 @@ export default function runAction(
 	}
 
 	const env = yeoman.createEnv("webpack", null);
-	const generatorName = `webpack-${action}-generator`;
+	const generatorName = `webpack-ui-${action}-generator`;
 
 	if (!generator) {
 		(generator as any) = class extends Generator {
@@ -71,11 +71,9 @@ export default function runAction(
 	(generator as any).prototype.prompt = questioner.question; // for changing prototype
 
 	env.registerStub((generator as Generator), generatorName);
-
-	return new Promise((resolve, reject) => {
-		env.run(generatorName, null);
-		resolve();
-	}).then(() => {
+	console.log("RUNNING");
+	return env.run(generatorName).then(() => {
+		console.log("RUN COMPLETE");
 		let configModule: object;
 		try {
 			const confPath = path.resolve(process.cwd(), ".yo-rc.json");
@@ -99,9 +97,12 @@ export default function runAction(
 			},
 			configModule,
 		);
-		runTransform(transformConfig, action);
-		return true;
+		console.log(JSON.stringify(transformConfig, null, 2));
+		return runTransform(transformConfig, action).then(() => {
+			console.log("Transformed");
+			return true;
+		});
 	}).catch((err) => {
 		return false;
-	});;
+	});
 }

@@ -15,11 +15,13 @@ export default class Questioner {
 	}
 
 	public question(ques: Generator.Question): Promise<Answers> {
-
+		if(!ques){
+			return;
+		}
 		return new Promise((resolve, reject) => {
 			if (!this.hasStarted) {
 				// Create Server
-				this.port = 1234;
+				this.port = 4321;
 				this.address = "localhost";
 				this.hasStarted = true;
 

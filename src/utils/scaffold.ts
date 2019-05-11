@@ -31,14 +31,15 @@ function mapOptionsToTransform(config: Config): string[] {
  * and writes the file
  */
 
-export default function runTransform(transformConfig: TransformConfig, action: string): void {
+export default function runTransform(transformConfig: TransformConfig, action: string): Promise<void> {
 	// webpackOptions.name sent to nameTransform if match
 	const webpackConfig = Object.keys(transformConfig).filter((p: string) => {
 		return p !== "configFile" && p !== "configPath";
 	});
 	const initActionNotDefined: boolean = action && action !== "init" ? true : false;
 
-	webpackConfig.forEach((scaffoldPiece: string) => {
+	return new Promise((resolve, reject) => {
+		webpackConfig.forEach((scaffoldPiece: string) => {
 		const config: Config = transformConfig[scaffoldPiece];
 
 		const transformations: string[] = mapOptionsToTransform(config);
@@ -59,7 +60,7 @@ export default function runTransform(transformConfig: TransformConfig, action: s
 
 		const transformAction: string = action || null;
 
-		return pEachSeries(transformations, (f: string): boolean | INode => {
+		pEachSeries(transformations, (f: string): boolean | INode => {
 			if (f === "merge" || f === "topScope") {
 				return astTransform(j, ast, f, config[f], transformAction);
 			}
@@ -79,11 +80,12 @@ export default function runTransform(transformConfig: TransformConfig, action: s
 				const source: string = ast.toSource({
 					quote: "single",
 				});
-
 				runPrettier(outputPath, source);
 			})
 			.catch((err: Error) => {
 				console.error(err.message ? err.message : err);
 			});
+		});
+		resolve();
 	});
 }
