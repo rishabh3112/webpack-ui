@@ -24,7 +24,9 @@ export default class WebpackGenerator extends Generator {
             "const path = require('path');"
         )
         this.configuration.config.entry = '"index.js"';
-        this.configuration.config.output.path = 'path.resolve(__dirname,"index.js")';
+        this.configuration.config.output = {
+            path : 'path.resolve(__dirname,"index.js")',
+        };
         done();
     }
 
