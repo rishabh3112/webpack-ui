@@ -79,6 +79,7 @@ class Codeblock extends Component {
                     onClick = {this.save}
                     className = {css.save}
                     variant = 'text'
+                    disabled = {!this.state.hasChanges}
                 > Save Changes </Button>
                 <Button
                     onClick = {this.refresh}
@@ -124,22 +125,21 @@ const css = (theme) => ({
         display: 'block',
         'margin-left': 'auto',
         'margin-right': '10px',
-        color: '#22ee22'
+        color: '#228822',
     },
     codeblock: {
         position: 'relative',
-        background: '#224488',
+        background: '#8DD6F9',
         height: "80%",
         'margin': '20px',
         'margin-top': "calc( 5% - 20px )",
-        color: "#fff",
+        color: 'black',
         padding: '0px',
     },
     filename: {
         position: 'absolute',
         top: '7px',
         left: '20px',
-        color: '#fff'
     }
 })
 

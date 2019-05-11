@@ -10,10 +10,22 @@ body {
     height: 100%;
 }
 .App{
-    height: calc(100% - 20px);
+    position: relative;
+    height: calc(100% - 120px);
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+    background: white;
+    margin-top: -60px;
+    border-radius: 5px;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
 }
 .pad-section{
     padding: 10px;
+}
+.page-title{
+    padding-left: 30px;
+    padding-top: 10px;
 }
 .no-conf {
     text-align: center;
@@ -26,4 +38,28 @@ body {
 }
 .react-codemirror2 {
     height: 100%;
+}
+
+.grey-card{
+    background: #F9FAFB;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    /* Shadows / Flat */
+
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+
+    margin-top: 50%;
+    transform: translateY(-50%);
+}
+#banner{
+    height: 150px;
+    background-color: #263238;
+    padding: 10px;
+}
+
+#banner .logo{
+    width: 200px;
 }

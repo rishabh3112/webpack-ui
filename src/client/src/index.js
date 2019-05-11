@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 
 import "./App.css";
 import Codeblock from "./components/Codeblock";
+import { Banner } from "./components/Banner";
 
 const styles = (theme) => ({
     appsection: {
@@ -32,26 +33,26 @@ class App extends Component{
   render(){
     const { classes } = this.props;
     return(
+    <>
+      <Banner></Banner>
       <div className="App">
+      <Typography variant="h5" className="page-title">
+      Dashboard
+      </Typography>
        <Grid className={classes.maingrid} container spacing={0}>
             <Grid item xs={4} className={classes.appsection}>
 
-                <AppBar position="static" color="primary">
-                    <Toolbar>
-                        <Typography variant="h6" color="inherit">
-                            webpack UI
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-
                 <div className="pad-section">
+                    <div className="grey-card">
+                        <Typography variant="headline">
+                            Create New Project
+                        </Typography>
+                        <Typography variant="subtitle1" color="inherit">
+                            Scaffold new project by one click!!
+                        </Typography>
 
-                    <Typography variant="subtitle1" color="inherit">
-                        Scaffold new project by one click!!
-                    </Typography>
-
-                    <Button onClick={() => {this.props.scaffold()}} variant="contained" color="primary">Scaffold Defaults</Button>
-
+                        <Button onClick={() => {this.props.scaffold()}} variant="contained" color="primary">Create Project</Button>
+                    </div>
                 </div>
             </Grid>
             <Grid item xs={8}>
@@ -59,6 +60,7 @@ class App extends Component{
             </Grid>
         </Grid>
       </div>
+      </>
     );
   }
 }

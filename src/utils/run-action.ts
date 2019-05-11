@@ -71,9 +71,8 @@ export default function runAction(
 	(generator as any).prototype.prompt = questioner.question; // for changing prototype
 
 	env.registerStub((generator as Generator), generatorName);
-	console.log("RUNNING");
+	//@ts-ignore
 	return env.run(generatorName).then(() => {
-		console.log("RUN COMPLETE");
 		let configModule: object;
 		try {
 			const confPath = path.resolve(process.cwd(), ".yo-rc.json");
@@ -99,7 +98,6 @@ export default function runAction(
 		);
 		console.log(JSON.stringify(transformConfig, null, 2));
 		return runTransform(transformConfig, action).then(() => {
-			console.log("Transformed");
 			return true;
 		});
 	}).catch((err) => {
