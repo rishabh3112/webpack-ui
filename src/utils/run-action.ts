@@ -96,7 +96,6 @@ export default function runAction(
 			},
 			configModule,
 		);
-		console.log(JSON.stringify(transformConfig, null, 2));
 		return runTransform(transformConfig, action).then(() => {
 			return true;
 		});
