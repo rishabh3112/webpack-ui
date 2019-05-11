@@ -1,0 +1,32 @@
+{
+  "name": "webpack-ui",
+  "version": "0.0.1",
+  "description": "UI for webpack",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabh3112/webpack-ui.git"
+  },
+  "keywords": [
+    "webpack",
+    "nodejs",
+    "web",
+    "webdev"
+  ],
+  "author": "Rishabh Chawla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rishabh3112/webpack-ui/issues"
+  },
+  "homepage": "https://github.com/rishabh3112/webpack-ui#readme",
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "typescript": "^3.4.5"
+  }
+}
