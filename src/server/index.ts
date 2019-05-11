@@ -1,6 +1,6 @@
-import express from 'express';
+import * as express from 'express';
 import { webpackConfigMiddleware } from './middlewares/config'
-import bodyParser from 'body-parser';
+import * as bodyParser from 'body-parser';
 import {join, resolve} from 'path';
 import { writeFileSync } from 'fs';
 import runAction from '../utils/run-action';

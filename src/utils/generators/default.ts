@@ -1,4 +1,4 @@
-import Generator from 'yeoman-generator';
+import * as Generator from 'yeoman-generator';
 
 export default class WebpackGenerator extends Generator {
     private configuration: any;
