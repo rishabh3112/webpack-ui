@@ -7,7 +7,8 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
 
 // Material UI components
-import { Typography, Button, Paper, Divider } from '@material-ui/core';
+import { Typography, Button, Paper } from '@material-ui/core';
+import RefreshIcon from '@material-ui/icons/refresh';
 import { withStyles } from '@material-ui/core/styles';
 
 // Redux Store
@@ -25,7 +26,8 @@ class Codeblock extends Component {
         super(props)
         this.state = {
             currentCode: null,
-            hasChanges: false
+            hasChanges: false,
+            isRefreshing: false, 
         }
     }
 
@@ -46,11 +48,17 @@ class Codeblock extends Component {
     }
 
     refresh = async () => {
-        await this.props.refresh();
         this.setState({
-            currentCode: this.props.webpack,
-            hasChanges: false
-        })
+            isRefreshing: true,
+        });
+        await this.props.refresh();
+        setTimeout(() => {
+            this.setState({
+                currentCode: this.props.webpack,
+                hasChanges: false,
+                isRefreshing: false
+            })
+        }, 800);
     }
 
     render(){
@@ -84,9 +92,9 @@ class Codeblock extends Component {
                 <Button
                     onClick = {this.refresh}
                     className = {css.refresh}
-                    variant = 'extendedFab'
+                    variant = 'fab'
                     color = 'primary'
-                > Refresh </Button>
+                > <RefreshIcon className={this.state.isRefreshing && 'rotation'} /> </Button>
                 <CodeMirror
                         value = {this.state.currentCode}
                         onBeforeChange = {
@@ -115,7 +123,6 @@ class Codeblock extends Component {
 
 const css = (theme) => ({
     refresh: {
-        display: 'block',
         position: 'absolute',
         bottom: '-20px',
         right: '10px',
@@ -131,8 +138,7 @@ const css = (theme) => ({
         position: 'relative',
         background: '#8DD6F9',
         height: "80%",
-        'margin': '20px',
-        'margin-top': "calc( 5% - 20px )",
+        'margin-right': '5px',
         color: 'black',
         padding: '0px',
     },
