@@ -6,7 +6,7 @@ import {scaffold, refresh} from './store/features/webpack';
 import { connect } from 'react-redux';
 
 // Material UI
-import Grid from '@material-ui/core/Grid'
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Switch from "@material-ui/core/Switch";
 import EditIcon from "@material-ui/icons/edit";
@@ -87,9 +87,11 @@ const styles = (theme) => ({
     appsection: {
         'margin-bottom': "-20px",
         backgroundColor: "#ffffff",
+        height: "100%",
+        "overflow-y": "scroll"
     },
     maingrid: {
-        height: "100%"
+        height: "calc(100% - 50px)",
     },
     toggle: {
         "float": "right",

@@ -28,7 +28,7 @@ export const save = (newWebpack) => async (dispatch) => {
     dispatch(update(webpack.webpack));
 }
 
-async function request(route, req) {
+export async function request(route, req) {
     const data = await fetch(
         `http://localhost:1234${route}`,
         {
