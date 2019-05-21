@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 
 import 'babel-polyfill';
 import "./App.css";
+import { StatusBar } from "./components/StatusBar";
 
 class App extends Component{
   constructor(props){
@@ -20,6 +21,7 @@ class App extends Component{
         <>
             <Banner></Banner>
             <Base />
+            <StatusBar />
         </>
     );
   }

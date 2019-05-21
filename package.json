@@ -11,6 +11,9 @@
   },
   "scripts": {
     "build:gui": "cd src/client && npm run build",
+    "dev:gui": "cd src/client && npm run dev",
+    "dev:nodemon": "cd src/client && nodemon --exec npm run build",
+    "dev": "tsc --watch",
     "build": "tsc && npm run build:gui"
   },
   "repository": {
@@ -34,6 +37,7 @@
     "@types/inquirer": "^6.0.1",
     "@types/node": "^12.0.0",
     "@types/prettier": "^1.16.3",
+    "@types/websocket": "0.0.40",
     "@types/yeoman-environment": "^2.3.0",
     "@types/yeoman-generator": "^3.1.2",
     "typescript": "^3.4.5"
@@ -45,7 +49,8 @@
     "jscodeshift": "^0.6.4",
     "p-each-series": "^2.1.0",
     "prettier": "^1.17.0",
+    "websocket": "^1.0.28",
     "yeoman-environment": "^2.3.4",
-    "yeoman-generator": "^4.0.0"
+    "yeoman-generator": "^3.1.1"
   }
 }

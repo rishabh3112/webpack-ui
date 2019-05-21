@@ -58,7 +58,7 @@ class Codeblock extends Component {
                 hasChanges: false,
                 isRefreshing: false
             })
-        }, 800);
+        }, 200);
     }
 
     render(){
@@ -79,6 +79,13 @@ class Codeblock extends Component {
             )
         }
         return (
+            <>
+            <Button
+                onClick = {this.refresh}
+                className = {css.refresh}
+                variant = 'fab'
+                color = 'primary'
+            > <RefreshIcon className={this.state.isRefreshing && 'rotation'} /> </Button>
             <Paper className={ css.codeblock }>
                 <Typography className={css.filename} variant='subheading'>
                     <b>webpack.config.js</b>{this.state.hasChanges && "*"}
@@ -89,12 +96,6 @@ class Codeblock extends Component {
                     variant = 'text'
                     disabled = {!this.state.hasChanges}
                 > Save Changes </Button>
-                <Button
-                    onClick = {this.refresh}
-                    className = {css.refresh}
-                    variant = 'fab'
-                    color = 'primary'
-                > <RefreshIcon className={this.state.isRefreshing && 'rotation'} /> </Button>
                 <CodeMirror
                         value = {this.state.currentCode}
                         onBeforeChange = {
@@ -117,6 +118,7 @@ class Codeblock extends Component {
                         }
                 ></CodeMirror>
             </Paper>
+            </>
         )
     }
 }
@@ -124,9 +126,9 @@ class Codeblock extends Component {
 const css = (theme) => ({
     refresh: {
         position: 'absolute',
-        bottom: '-20px',
+        bottom: 'calc(10% - 25px)',
         right: '10px',
-        'z-index': '1'
+        'z-index': '7'
     },
     save: {
         display: 'block',
@@ -137,7 +139,7 @@ const css = (theme) => ({
     codeblock: {
         position: 'relative',
         background: '#8DD6F9',
-        height: "80%",
+        height: "70%",
         'margin-right': '5px',
         color: 'black',
         padding: '0px',

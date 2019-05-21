@@ -40,10 +40,11 @@ const DEFAULT_WEBPACK_CONFIG_FILENAME = "webpack.config.js";
 export default function runAction(
 	action: string,
 	generator: Generator | typeof Generator,
+	scaffold?: string,
 	configFile: string = DEFAULT_WEBPACK_CONFIG_FILENAME,
 	packages?: string[],
 )
-	: Promise<boolean>{
+	: Promise<void>{
 
 	let configPath: string | null = null;
 
@@ -53,7 +54,7 @@ export default function runAction(
 	}
 
 	const env = yeoman.createEnv("webpack", null);
-	const generatorName = `webpack-ui-${action}-generator`;
+	const generatorName = scaffold?`webpack-ui-${scaffold}-generator`:`webpack-ui-${scaffold}-generator`;
 
 	if (!generator) {
 		(generator as any) = class extends Generator {
@@ -71,35 +72,41 @@ export default function runAction(
 	(generator as any).prototype.prompt = questioner.question; // for changing prototype
 
 	env.registerStub((generator as Generator), generatorName);
-	//@ts-ignore
-	return env.run(generatorName).then(() => {
-		let configModule: object;
-		try {
-			const confPath = path.resolve(process.cwd(), ".yo-rc.json");
-			configModule = require(confPath);
-			// Change structure of the config to be transformed
-			const tmpConfig: object = {};
-			Object.keys(configModule).forEach((prop: string): void => {
-				const configs = Object.keys(configModule[prop].configuration);
-				configs.forEach((conf: string): void => {
-					tmpConfig[conf] = configModule[prop].configuration[conf];
+
+	return new Promise((resolve, reject) => {
+		env.run(generatorName, () => {
+			let configModule: object;
+			try {
+				const confPath = path.resolve(process.cwd(), ".yo-rc.json");
+				configModule = require(confPath);
+				
+				// Change structure of the config to be transformed
+				const tmpConfig: object = {};
+				Object.keys(configModule).forEach((prop: string): void => {
+					const configs = Object.keys(configModule[prop].configuration);
+					configs.forEach((conf: string): void => {
+						tmpConfig[conf] = configModule[prop].configuration[conf];
+					});
 				});
-			});
-			configModule = tmpConfig;
-		} catch (err) {
-			return false;
-		}
-		const transformConfig: TransformConfig = Object.assign(
-			{
-				configFile: !configPath ? null : fs.readFileSync(configPath, "utf8"),
-				configPath,
-			},
-			configModule,
-		);
-		return runTransform(transformConfig, action).then(() => {
-			return true;
+				configModule = tmpConfig;
+	
+			} catch (err) {
+				return false;
+			}
+	
+			const transformConfig: TransformConfig = Object.assign(
+				{
+					configFile: !configPath ? null : fs.readFileSync(configPath, "utf8"),
+					configPath,
+				},
+				configModule,
+			);
+			
+
+			return runTransform(transformConfig, action).then(() => {
+				return true;
+			})	
 		});
-	}).catch((err) => {
-		return false;
-	});
+		resolve();
+	})
 }

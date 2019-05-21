@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom"
+import { browserHistory } from 'react-router';
+import { HashRouter as Router, Route} from "react-router-dom"
 
 // Store
 import {scaffold, refresh} from './store/features/webpack';
@@ -15,6 +16,8 @@ import { withStyles } from '@material-ui/core/styles';
 // Components 
 import Codeblock from "./components/Codeblock";
 import {Home} from "./pages/Home";
+import Scaffold from './pages/Scaffold';
+
 
 class BaseDashboard extends React.Component{
     constructor(props){
@@ -22,7 +25,14 @@ class BaseDashboard extends React.Component{
         this.state = {
             showEditor: false,
             isToggling: false,
+            title: "Dashboard"
         }
+    }
+
+    changeTitle = (t) => {
+        this.setState({
+            title: t
+        })
     }
 
     toggleEditor = () => {
@@ -57,7 +67,7 @@ class BaseDashboard extends React.Component{
                     </span>
 
                     <Typography variant="h5" className="page-title">
-                        Dashboard
+                        {this.state.title}
                     </Typography>
                     
                     <Grid className={classes.maingrid} container spacing={0}>
@@ -66,7 +76,12 @@ class BaseDashboard extends React.Component{
                         } className={classes.appsection}>
                             <Route exact path="/" render={
                                 (props) => {
-                                    return <Home {...{...props,...this.props}} />
+                                    return <Home setTitle={this.changeTitle} {...{...props,...this.props}} />
+                                }
+                            } />
+                            <Route path="/scaffold/:name" render={
+                                (props) => {
+                                    return <Scaffold setTitle={this.changeTitle} {...{...props,...this.props}} />
                                 }
                             } />
                         </Grid>
