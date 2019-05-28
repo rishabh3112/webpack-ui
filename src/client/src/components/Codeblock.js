@@ -139,7 +139,7 @@ const css = (theme) => ({
     codeblock: {
         position: 'relative',
         background: '#8DD6F9',
-        height: "70%",
+        height: "90%",
         'margin-right': '5px',
         color: 'black',
         padding: '0px',

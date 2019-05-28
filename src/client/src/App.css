@@ -11,12 +11,15 @@ body {
 }
 .App{
     position: relative;
-    height: calc(100% - 150px);
+    height: calc(100% - 130px);
     overflow: hidden;
-    width: 90%;
+    background:  linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png') #ffffff;
+    background-position: 100% 105%;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    width: 98%;
     margin: 0 auto;
-    background: white;
-    margin-top: -60px;
+    margin-top: -80px;
     padding: 0px;
     border-radius: 5px;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
@@ -36,11 +39,11 @@ body {
 .options-box {
     display: inline-block;
     max-width: 300px;
-    border: rgba(0, 0, 0, 0.1) 2px solid;
     padding: 10px;
-    background: #F9FAFB;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
     margin: 10px 10px;
     border-radius: 4px;
+    background: #ffffff;
 }
 .status-bar {
     position: fixed;
@@ -60,7 +63,15 @@ body {
 .status-message {
     padding-left: 15px;
 }
+.section-banner {
+    background: #1D78C1;
+    color: white !important;
+    padding: 100px 0px;
+}
 
+.section-banner h4 {
+    color: white;
+}
 .tasks {
     background: #263238;
     padding: 4px;
@@ -94,12 +105,9 @@ body {
 }
 
 .grey-card{
-    background: #F9FAFB;
     border: 0.5px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    /* Shadows / Flat */
-
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
     border-radius: 5px;
     padding: 10px;
     text-align: center;
@@ -151,4 +159,51 @@ body {
 
 #banner .logo{
     width: 200px;
+}
+
+.ais-Hits-list  {
+    list-style: none;
+}
+.ais-SearchBox-input {
+    display: block;
+    padding: 1em 3em;
+    transition: border-bottom 1s cubic-bezier(0.19, 1, 0.22, 1), max-width 1s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 98%;
+    max-width: 400px;
+    margin: 10px auto;
+    position: relative;
+    border: none;
+    border-bottom: #8DD6F9 1px solid;
+    background-color: rgba(255, 255, 255, 0.0);
+    border-radius: 5px;
+    color: white;
+    height: 50px;
+}
+.ais-SearchBox-input::placeholder {
+    color: white;
+}
+.ais-SearchBox-input:focus {
+    outline: none;
+    max-width: 500px;
+    border-bottom: #8DD6F9 4px solid;
+}
+ul.ais-Hits-list {
+    padding: 0;
+}
+
+.ais-SearchBox-reset svg,
+.ais-SearchBox-submit svg {
+    display: none;
+}
+
+.ais-SearchBox-reset {
+    display: none;
+}
+
+button.ais-SearchBox-submit {
+    display: none;
+}
+
+.ais-Hits-item {
+    display: inline-block;
 }

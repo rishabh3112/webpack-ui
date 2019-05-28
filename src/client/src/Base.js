@@ -101,7 +101,6 @@ class BaseDashboard extends React.Component{
 const styles = (theme) => ({
     appsection: {
         'margin-bottom': "-20px",
-        backgroundColor: "#ffffff",
         height: "100%",
         "overflow-y": "scroll"
     },
