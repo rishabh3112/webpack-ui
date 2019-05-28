@@ -7,10 +7,10 @@ Project is currently in initial development stages. Feel free to use this projec
 <div align="center">
 <h1>webpack UI</h1>
 Full featured UI for webpack<br>
-<a href="https://www.npmjs.com/package/webpack-scaffold-starter">
+<a href="https://www.npmjs.com/package/webpack-ui">
     <img src="https://badge.fury.io/js/webpack-ui.svg" alt="npm version" />
   </a>
-  <a href="https://www.npmjs.com/package/webpack-scaffold-starter">
+  <a href="https://www.npmjs.com/package/webpack-ui">
     <img src="https://img.shields.io/npm/dt/webpack-ui.svg" alt="npm downloads" />
   </a>
 </div>
