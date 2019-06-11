@@ -1,6 +1,7 @@
 > WIP <br>
 Project is currently in initial development stages. Feel free to use this project and give feedback.
 
+**NOTE: The features implemented here will be available at [webpack-ui](https://github.com/webpack-ui/webpack-ui) soon after migration is completed.**
 <p align="center">
   <img alt="webpack logo" src="https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png" width="50px" />
 </p>
