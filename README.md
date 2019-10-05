@@ -50,4 +50,4 @@ Feel free to open a PR.
 - `webpack-cli`: I orignally proposed it to be a part of webpack-cli as we can reuse the code in UI itself. Also some of the code from webpack-cli served as base for `Starters` support on UI.
 
 ## Author
-@rishabh3112 : [Rishabh Chawla](https://rishabh3112.github.io/)
+@rishabh3112 : [Rishabh Chawla](https://rishabhchawla.now.sh/)
