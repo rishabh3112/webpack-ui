@@ -13,10 +13,12 @@ import Switch from "@material-ui/core/Switch";
 import EditIcon from "@material-ui/icons/edit";
 import { withStyles } from '@material-ui/core/styles';
 
+
 // Components 
 import Codeblock from "./components/Codeblock";
 import {Home} from "./pages/Home";
 import Scaffold from './pages/Scaffold';
+
 
 
 class BaseDashboard extends React.Component{
@@ -55,6 +57,7 @@ class BaseDashboard extends React.Component{
     render() {
         const {classes} = this.props;
         return (
+            
             <Router>
                 <div className="App">
                     <span className = {classes.toggle}>
@@ -94,6 +97,7 @@ class BaseDashboard extends React.Component{
                     </Grid>
                 </div>
             </Router>
+            
         );
     }
 }
