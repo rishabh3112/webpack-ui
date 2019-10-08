@@ -1,9 +1,11 @@
 @import '../node_modules/codemirror/lib/codemirror.css';
 @import '../node_modules/codemirror/theme/dracula.css';
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
 body {
     margin: 0px;
     padding: 0px;
     height: 100vh;
+    font-family: 'Fira Sans', sans-serif;
     background: #e0e0ef;
 }
 #root {
