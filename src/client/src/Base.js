@@ -67,7 +67,7 @@ class BaseDashboard extends React.Component{
                     </span>
 
                     <Typography variant="h5" className="page-title">
-                        {this.state.title}
+                        <img src="/assets/logo.png" /> / {this.state.title}
                     </Typography>
                     
                     <Grid className={classes.maingrid} container spacing={0}>
