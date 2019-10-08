@@ -33,6 +33,8 @@ export function Home(props) {
                         Project Manager
                     </Typography>
                 </div>
+                <br/>
+                <br/>
                 <Typography align="center" variant="subtitle1" color="inherit">
                     Start editing configuration on Editor <EditIcon />
                 </Typography>

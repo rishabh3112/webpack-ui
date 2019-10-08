@@ -52,7 +52,7 @@ ${res.value}
                     "status-bar"
                 ].join(' ')
             } >
-                <Typography variant="body2" color="inherit">
+                <Typography inline={true} variant="body2" color="inherit">
                 <div className="tasks">
                     Tasks
                     <BuildIcon onClick={async () => await build()} className="status-button"/>
@@ -69,6 +69,10 @@ ${res.value}
                     }
                     </b>
                 </Typography>
+                {
+                    false &&
+                    <span style={{float: "right"}}><Typography inline={true} align="right" variant="body2"> About </Typography></span>
+                }
             </div>
             
 
