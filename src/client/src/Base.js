@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Switch from "@material-ui/core/Switch";
-import EditIcon from "@material-ui/icons/edit";
+import EditIcon from "@material-ui/icons/Edit";
 import { withStyles } from '@material-ui/core/styles';
 
 

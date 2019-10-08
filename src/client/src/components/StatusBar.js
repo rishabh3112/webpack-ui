@@ -9,8 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 import {request} from '../store/features/webpack';
 
-import BuildIcon from '@material-ui/icons/build';
-import MessageIcon from '@material-ui/icons/warning';
+import BuildIcon from '@material-ui/icons/Build';
+import MessageIcon from '@material-ui/icons/Warning';
 
 export function StatusBar(props) {
     const [isRunning, setIsRunning] = useState(false);
