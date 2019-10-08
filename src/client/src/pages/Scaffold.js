@@ -93,11 +93,11 @@ function Scaffold(props) {
                 question &&
                 <div>
                         {question}
-                    <Fab style={{position: "relative", top: "-27.5px", left: "90%", transform: "translateX(-50%)"}} disabled={disable} color="primary" onClick={
+                    <Fab variant="extended" style={{position: "fixed", bottom: "50px", right: "50px", transform: "translateX(-50%)"}} disabled={disable} color="primary" onClick={
                         async () => {
                             const nextQuestion = await questionIterable.next();
                             setQuestion(nextQuestion.value);
-                    }}><PlayArrow></PlayArrow></Fab>
+                    }}><PlayArrow></PlayArrow> Next</Fab>
                 </div>
             }
             {
@@ -106,6 +106,7 @@ function Scaffold(props) {
                     <center style={{paddingTop: "10%"}}>
                         <CircularProgress></CircularProgress>
                         <Typography variant="h5">{message}</Typography>
+                        <Typography variant="body2"> This may take some minutes </Typography>
                     </center>
                 </div>
             }

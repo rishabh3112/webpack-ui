@@ -42,14 +42,7 @@ body {
     top: 40%;
 }
 .options-box {
-    display: inline-block;
-    max-width: 300px;
-    padding: 10px;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
-    margin: 10px 10px;
-    border-radius: 4px;
-    padding-top: -4px;
-    background: #ffffff;
+    width: 100%;
 }
 .status-bar {
     position: fixed;
@@ -72,10 +65,13 @@ body {
 .section-banner {
     background: #1D78C1;
     color: white !important;
-    padding: 100px 0px;
+    padding: 50px 0px;
 }
 
 .section-banner h4 {
+    color: white;
+}
+.section-banner p {
     color: white;
 }
 .tasks {
@@ -169,6 +165,22 @@ body {
 
 .ais-Hits-list  {
     list-style: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: space-around;
+}
+.ais-Hits-list li {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+}
+
+@media screen and (max-width: 800px) {
+    .ais-Hits-list {
+        grid-template-columns: 50% 50%;
+    }
 }
 .ais-SearchBox-input {
     display: block;

@@ -27,21 +27,27 @@ export function Home(props) {
         <>
         {
             props.webpack &&
-            <div className="section-banner">
-                <Typography align="center" variant="h4">
-                    Project Found !
-                </Typography>
+            <>
+                <div className="section-banner">
+                    <Typography align="center" variant="h4">
+                        Project Manager
+                    </Typography>
+                </div>
                 <Typography align="center" variant="subtitle1" color="inherit">
                     Start editing configuration on Editor <EditIcon />
                 </Typography>
-            </div>
+                <Typography align="center" variant="subtitle1" color="inherit">
+                    Build your project from the taskbar below
+                </Typography>
+            </>
         }
         {
             !props.webpack &&
             <>
             <InstantSearch searchClient={searchClient} indexName="npm-search">
                     <div className="section-banner">
-                    <Typography align="center" variant="h4">Project Starters</Typography>
+                        <Typography align="center" variant="h4">webpack UI</Typography>
+                        <Typography align="center" variant="body2">Create a new project from these awesome starters.</Typography>
                     <SearchBox/>
                     </div>
                     <Fab variant="extended" color="secondary" style={{float: "right", top: "-29px", marginRight: "20px"}} onClick={() => {props.scaffold()}}>
@@ -56,12 +62,8 @@ export function Home(props) {
                         <Hits hitComponent={HitBox} />
                     </div>
                 </InstantSearch>
-                <br />
-                <Typography variant="caption" align="center">
-                    Search powered by algolia <br/>
-                    Want to make your own scaffold?<br />
-                    Get started using <a target="_blank" href="https://github.com/rishabh3112/webpack-scaffold-starter">webpack-scaffold-starter</a>
-                </Typography>
+                <br/>
+                <br/>
             </>
         }
         </>

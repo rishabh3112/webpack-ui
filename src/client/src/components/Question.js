@@ -32,7 +32,7 @@ export function Question(props) {
                 setOptions(
                     <>
                     <TextField
-                        placeholder={question.default ? question.default() : "Enter Answer here"}
+                        placeholder={question.default ? question.default : "Enter Answer here"}
                         onChange={(e) => {
                             const val = e.target.value;
                             if(!question.validate){
@@ -133,18 +133,18 @@ export function Question(props) {
     }, [question, ans])
     return (
         <>
-            <Card style={{width: '90%', margin: 'auto', marginTop: '5%'}}>
-                <CardHeader title={question.message} />
-                <CardContent>
-                    <Typography variant="caption">
-                    <InfoIcon fontSize="small" color="primary" /> Default value {question.default?question.default():"not provided"}
-                    </Typography>
-                </CardContent>
+            <div style={{padding: '20px'}}>
+                <Typography variant="headline">Question</Typography>
+                <Typography variant="display1"> {question.message} </Typography>
+                <br />
+                <Typography variant="subheading"><InfoIcon fontSize="small" color="primary" /> Default value {question.default?question.default:"not provided"}</Typography>
+                <br />
                 <Divider />
+                <br />
                 <div style={{padding: '5px'}} id="options">
                     {options}
                 </div>
-            </Card>
+            </div>
         </>
     );
 }

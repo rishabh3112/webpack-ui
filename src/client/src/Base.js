@@ -60,15 +60,17 @@ class BaseDashboard extends React.Component{
             
             <Router>
                 <div className="App">
-                    <span className = {classes.toggle}>
-                        <EditIcon className={classes.editIcon} />
-                        <Switch
-                            checked={this.state.showEditor}
-                            onChange={this.toggleEditor}
-                            color="primary"
-                        />
-                    </span>
-
+                    {
+                        this.props.webpack &&
+                        <span className = {classes.toggle}>
+                            <EditIcon className={classes.editIcon} />
+                            <Switch
+                                checked={this.state.showEditor}
+                                onChange={this.toggleEditor}
+                                color="primary"
+                            />
+                        </span>
+                    }
                     <Typography variant="h5" className="page-title">
                         <img src="/assets/logo.png" /> / {this.state.title}
                     </Typography>
@@ -89,7 +91,7 @@ class BaseDashboard extends React.Component{
                             } />
                         </Grid>
                         {
-                            (this.state.showEditor || this.state.isToggling) &&
+                            this.props.webpack && (this.state.showEditor || this.state.isToggling) &&
                             <Grid item xs={8} className={this.state.isToggling&&(this.state.showEditor?'slideIn':'slideOut')}>
                                 <Codeblock/>
                             </Grid>
