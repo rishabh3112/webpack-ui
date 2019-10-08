@@ -19,7 +19,6 @@ class App extends Component{
   render(){
     return(
         <>
-            <Banner></Banner>
             <Base />
             <StatusBar />
         </>

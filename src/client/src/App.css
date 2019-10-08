@@ -11,16 +11,14 @@ body {
 }
 .App{
     position: relative;
-    height: calc(100% - 130px);
+    height: calc(100% - 33px);
     overflow: hidden;
-    background:  linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('https://raw.githubusercontent.com/webpack/media/master/logo/icon-square-big.png') #ffffff;
+    background: #ffffff;
     background-position: 100% 105%;
     background-size: 30%;
     background-repeat: no-repeat;
-    width: 98%;
     margin: 0 auto;
-    margin-top: -80px;
-    padding: 0px;
+    padding: 5px 0px 5px 0px;
     border-radius: 5px;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
 }
@@ -30,6 +28,11 @@ body {
 .page-title{
     padding-left: 30px;
     padding-top: 10px;
+    padding-bottom: 10px;
+}
+.page-title img {
+    width: 40px;
+    vertical-align: middle;
 }
 .no-conf {
     text-align: center;
@@ -43,6 +46,7 @@ body {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
     margin: 10px 10px;
     border-radius: 4px;
+    padding-top: -4px;
     background: #ffffff;
 }
 .status-bar {
