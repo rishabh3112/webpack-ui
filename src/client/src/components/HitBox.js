@@ -10,11 +10,7 @@ export default function HitBox(props) {
         <>
         {
             hit && hit.name !== "webpack-scaffold-starter" ?
-            <OptionsBox title={hit.name.split("-")[2].toUpperCase() + " starter"} description={hit.description}>
-                <Link to={`/scaffold/${hit.name}`}>
-                    <Button variant="contained" color="primary">Create</Button>
-                </Link>
-            </OptionsBox>
+            <OptionsBox title={hit.name.split("-")[2].toUpperCase() + " starter"} description={hit.description} {...hit}></OptionsBox>
             :
             <>
             <br/>
@@ -23,6 +19,8 @@ export default function HitBox(props) {
                 Want to make your own scaffold?<br />
                 Get started using <a target="_blank" href="https://github.com/rishabh3112/webpack-scaffold-starter">webpack-scaffold-starter</a>
             </Typography>
+            <br/>
+            <br/>
             </>
         }
         </>

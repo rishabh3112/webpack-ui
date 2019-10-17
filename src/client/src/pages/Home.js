@@ -28,6 +28,7 @@ export function Home(props) {
         {
             props.webpack &&
             <>
+                <img id="ban-img" src="/assets/group.png" alt="background" />
                 <div className="section-banner">
                     <Typography align="center" variant="h4">
                         Project Manager
@@ -47,14 +48,17 @@ export function Home(props) {
             !props.webpack &&
             <>
             <InstantSearch searchClient={searchClient} indexName="npm-search">
+                    <img id="ban-img" src="/assets/group.png" alt="background" />
                     <div className="section-banner">
                         <Typography align="center" variant="h4">webpack UI</Typography>
                         <Typography align="center" variant="body2">Create a new project from these awesome starters.</Typography>
-                    <SearchBox/>
+                    <SearchBox translations = {{
+                        placeholder: 'Search here'
+                    }}/>
                     </div>
-                    <Fab variant="extended" color="secondary" style={{float: "right", top: "-29px", marginRight: "20px"}} onClick={() => {props.scaffold()}}>
+                    {/* <Fab variant="extended" color="secondary" style={{float: "right", top: "-29px", marginRight: "20px"}} onClick={() => {props.scaffold()}}>
                         <AddIcon /> Empty Project
-                    </Fab>
+                    </Fab> */}
                     <div className="pad-section">
                         <Configure
                             filters="computedKeywords:webpack-scaffold"
