@@ -10,7 +10,7 @@
     "algoliasearch": "^3.33.0",
     "async-reactor": "^1.2.2",
     "babel-polyfill": "^6.26.0",
-    "codemirror": "^5.45.0",
+    "codemirror": "^5.58.2",
     "react": "^16.8.6",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.8.6",
